@@ -1,0 +1,108 @@
+/* Custom styles for Artbeat Studio */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.masonry-grid {
+  columns: 1;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    columns: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+.mural-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mural-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
+}
+
+.glass-nav {
+  background: rgba(253, 251, 247, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.bg-brush-stroke {
+  background-color: #fdfbf7;
+  background-image:
+    linear-gradient(rgba(193, 110, 77, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(193, 110, 77, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  position: relative;
+}
+
+.bg-brush-stroke::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q 25 40 50 50 T 100 50' stroke='rgba(193, 110, 77, 0.04)' fill='transparent' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Premium Gallery Frame */
+.artwork-frame {
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artwork-frame:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 12px rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+.canvas-texture {
+  position: relative;
+}
+
+.canvas-texture::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/canvas-fabric.png");
+  opacity: 0.05;
+  pointer-events: none;
+}
